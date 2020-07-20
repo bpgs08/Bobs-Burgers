@@ -10,7 +10,6 @@ export const scheduleReducer = (state = {}, { type, payload }) => {
         loading: payload.loading,
         ...state,
       };
-
     case "GET_NEW_SCHEDULE_BY_ID_ATTEMPT":
       return { ...state, loading: payload.loading };
     case "GET_NEW_SCHEDULE_BY_ID_SUCCESS":

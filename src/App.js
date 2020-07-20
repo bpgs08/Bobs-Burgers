@@ -5,7 +5,8 @@ import Header from "../src/components/header";
 const Home = lazy(() => import("../src/pages/home"));
 const Schedules = lazy(() => import("../src/pages/schedules"));
 const Admin = lazy(() => import("../src/pages/admin"));
-const CheckSchedule = lazy(() => import("../src/pages/admin/CheckSchedule"));
+const CheckSchedule = lazy(() => import("../src/pages/checkSchedule"));
+const EditBurgers = lazy(() => import("../src/pages/editBurgers"));
 
 const App = () => {
   return (
@@ -32,6 +33,11 @@ const App = () => {
             path="/admin/scheduleForWeek"
             exact={true}
             component={(props) => <Schedules {...props} />}
+          />
+          <Route
+            path="/editBurgers"
+            exact={true}
+            component={(props) => <EditBurgers {...props} />}
           />
         </Switch>
       </Suspense>

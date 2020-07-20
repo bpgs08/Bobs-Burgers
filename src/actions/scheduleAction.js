@@ -1,5 +1,4 @@
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 
 const GET_NEW_SCHEDULE_ATTEMPT = "GET_NEW_SCHEDULE_ATTEMPT";
 const GET_NEW_SCHEDULE_SUCCESS = "GET_NEW_SCHEDULE_SUCCESS";

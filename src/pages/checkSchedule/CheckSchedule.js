@@ -5,10 +5,19 @@ import { getScheduleById } from "../../actions/scheduleAction";
 import Main from "../../components/main";
 import Calendar from "../../components/calendar";
 
-let CheckSchedule = ({ getUsers, users, getScheduleById, scheduleOfToday }) => {
+const CheckSchedule = ({
+  getUsers,
+  users,
+  getScheduleById,
+  scheduleOfToday,
+}) => {
   useEffect(() => {
-    getUsers();
-    getScheduleById({ todayId: new Date().getDay() + 1 });
+    if (!users) {
+      getUsers();
+    }
+    if (!scheduleOfToday) {
+      getScheduleById({ todayId: new Date().getDay() + 1 });
+    }
   }, []);
 
   return (

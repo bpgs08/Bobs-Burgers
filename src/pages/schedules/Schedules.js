@@ -5,10 +5,14 @@ import { getSchedule } from "../../actions/scheduleAction";
 import Calendar from "../../components/calendar";
 import Main from "../../components/main";
 
-let Schedules = ({ getUsers, users, getSchedule, schedule }) => {
+const Schedules = ({ getUsers, users, getSchedule, schedule }) => {
   useEffect(() => {
-    getUsers();
-    getSchedule();
+    if (!users) {
+      getUsers();
+    }
+    if (!schedule) {
+      getSchedule();
+    }
   }, []);
 
   return (

@@ -25,25 +25,25 @@ export const getDayByAbbreviation = (day) => {
 
 export const getDayByNumber = (day) => {
   switch (day) {
-    case 0:
+    case 1:
       return "Sunday";
       break;
-    case 1:
+    case 2:
       return "Monday";
       break;
-    case 2:
+    case 3:
       return "Tuesday";
       break;
-    case 3:
+    case 4:
       return "Wednesday";
       break;
-    case 4:
+    case 5:
       return "Thursday";
       break;
-    case 5:
+    case 6:
       return "Friday";
       break;
-    case 6:
+    case 7:
       return "Saturday";
   }
 };

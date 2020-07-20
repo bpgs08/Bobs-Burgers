@@ -1,46 +1,39 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getUsers } from "../../actions/usersAction";
 import { getBurgers, addBurger } from "../../actions/burgersAction";
-import { getScheduleById } from "../../actions/scheduleAction";
+import { getSchedule } from "../../actions/scheduleAction";
 import BurgerList from "../../components/burgerList";
 
 import Main from "../../components/main";
-let Home = ({
-  history,
-  match,
-  getBurgers,
-  addBurger,
-  burgers,
-  getUsers,
-  users,
-  getScheduleById,
-  scheduleOfToday,
-}) => {
+const Home = ({ getBurgers, burgers, getSchedule, schedule }) => {
+  const todayId = new Date().getDay() + 1;
   useEffect(() => {
-    getBurgers();
-    getScheduleById({ todayId: new Date().getDay() + 1 });
+    if (!schedule) {
+      getSchedule();
+    }
+    if (!burgers) {
+      getBurgers();
+    }
   }, []);
 
   return (
     <Main>
       <h1>Welcome to Bob's Burgers</h1>
-      <BurgerList burgers={burgers} burgerOfDayId={scheduleOfToday?.burgerId} />
+      <BurgerList burgers={burgers} schedule={schedule} todayId={todayId} />
     </Main>
   );
 };
 
 const mapDispatchToProps = {
-  getUsers,
   getBurgers,
   addBurger,
-  getScheduleById,
+  getSchedule,
 };
 
 const mapStateToProps = ({ burgersReducer, scheduleReducer }) => {
   return {
     burgers: burgersReducer.burgers,
-    scheduleOfToday: scheduleReducer.scheduleOfToday,
+    schedule: scheduleReducer.schedule,
   };
 };
 
